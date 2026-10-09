@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ekta Ranipa · Senior Mobile Developer for Hire</title>
+<meta name="description" content="Ekta Ranipa is a freelance senior Mobile developer with 6+ years of experience shipping production apps in Kotlin, Java, Jetpack Compose and Flutter. Available for projects worldwide.">
+<meta property="og:title" content="Ekta Ranipa · Senior Mobile Developer for Hire">
+<meta property="og:description" content="Mobile apps and the APIs behind them. Kotlin, Java, Jetpack Compose, Flutter, Spring Boot, Ktor, Firebase.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F6F7F9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- Tokens ---------- */
+:root{
+  --bg:#F6F7F9; --surface:#FFFFFF; --ink:#172033; --muted:#566074; --line:#E1E5EC;
+  --accent:#0F5E59; --accent-ink:#FFFFFF; --accent-soft:#E3F0EE; --brass:#9A6F25;
+  --phone:#1B2333;
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --wrap:1160px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1420; --surface:#151D2B; --ink:#E8ECF3; --muted:#9BA5B7; --line:#263043;
+    --accent:#5BBDB0; --accent-ink:#0B1A19; --accent-soft:#16302F; --brass:#D6AE62; --phone:#05080D;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1420; --surface:#151D2B; --ink:#E8ECF3; --muted:#9BA5B7; --line:#263043;
+  --accent:#5BBDB0; --accent-ink:#0B1A19; --accent-soft:#16302F; --brass:#D6AE62; --phone:#05080D;
+  color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-0.01em;line-height:1.12;margin:0}
+p{margin:0}
+.muted{color:var(--muted)}
+
+/* ---------- Header ---------- */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.site.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:600}
+.mono{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);font-family:var(--serif);font-size:1.05rem;font-weight:600}
+.nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.95rem;font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.icon-btn svg{width:18px;height:18px}
+.menu-btn{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.35rem;border-radius:999px;font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s, background .15s}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--muted)}
+.btn-sm{padding:.55rem 1rem;font-size:.9rem}
+@media (max-width:860px){
+  .nav-links{position:fixed;inset:calc(env(safe-area-inset-top,0px) + 68px) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem clamp(1.1rem,4vw,2.5rem) 1rem;display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:.85rem 0;font-size:1.05rem;border-bottom:1px solid var(--line)}
+  .menu-btn{display:grid}
+  .hire-top{display:none}
+}
+
+/* ---------- Hero ---------- */
+.hero{padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(3rem,7vw,5rem)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.status{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem .9rem .4rem .7rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.9rem;color:var(--muted);margin-bottom:1.6rem}
+.dot{width:9px;height:9px;border-radius:50%;background:#2FA36B;box-shadow:0 0 0 4px color-mix(in srgb,#2FA36B 22%,transparent)}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4.3rem);max-width:15ch}
+.hero .lede{margin-top:1.5rem;font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--muted);max-width:56ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem 2rem;margin-top:2.75rem;padding-top:1.75rem;border-top:1px solid var(--line)}
+.fact b{display:block;font-family:var(--serif);font-size:1.6rem;font-weight:500;line-height:1.1}
+.fact span{font-size:.9rem;color:var(--muted)}
+@media (max-width:560px){.facts{grid-template-columns:1fr 1fr}.fact:last-child{grid-column:1/-1}}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero h1{max-width:18ch}}
+
+/* ---------- Phone ---------- */
+.showcase{display:flex;flex-direction:column;align-items:center;gap:1.1rem}
+.phone{position:relative;width:min(290px,76vw);aspect-ratio:9/18.6;background:var(--phone);border-radius:44px;padding:11px;box-shadow:0 30px 60px -25px rgba(15,25,45,.45),0 0 0 1px rgba(255,255,255,.04) inset}
+.phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:76px;height:20px;border-radius:12px;background:var(--phone);z-index:5}
+.screen-box{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:#fff}
+.screen{position:absolute;inset:0;padding:46px 16px 14px;font-family:var(--sans);font-size:11px;line-height:1.35;color:#1d2433;display:flex;flex-direction:column;gap:10px;opacity:0;transition:opacity .45s ease}
+.screen.active{opacity:1}
+@media (prefers-reduced-motion:reduce){.screen{transition:none}}
+.app-tabs{display:flex;gap:.35rem;padding:.3rem;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.app-tabs button{font:inherit;font-size:.88rem;font-weight:600;padding:.45rem .95rem;border-radius:999px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.app-tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.show-caption{font-size:.88rem;color:var(--muted);text-align:center;max-width:32ch}
+
+/* FemHealth screen */
+.fh{background:linear-gradient(180deg,#FFF3F6 0%,#FFFFFF 55%)}
+.s-top{display:flex;justify-content:space-between;align-items:center}
+.s-top b{font-size:14px}
+.s-av{width:26px;height:26px;border-radius:50%;background:#F5C9D6;display:grid;place-items:center;font-weight:700;color:#A3284F;font-size:10px}
+.ring{position:relative;width:150px;height:150px;margin:6px auto 0}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.ring-in small{color:#8a6070;font-size:10px}
+.ring-in strong{font-family:var(--serif);font-size:30px;font-weight:500;color:#A3284F;line-height:1}
+.pill-note{background:#FCE4EB;color:#8E2246;border-radius:12px;padding:8px 10px;text-align:center;font-weight:600}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid #EBD3DA;border-radius:999px;padding:4px 9px;background:#fff;color:#6b4553}
+.chip.on{background:#A3284F;color:#fff;border-color:#A3284F}
+.s-btn{margin-top:auto;background:#A3284F;color:#fff;border-radius:14px;padding:11px;text-align:center;font-weight:700}
+.mini-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:9px;color:#7a6870}
+.mini-cal span{padding:4px 0;border-radius:7px}
+.mini-cal .p{background:#F7C6D4;color:#7d1d3c}.mini-cal .o{background:#D9EEE9;color:#1f5d52}.mini-cal .t{outline:1.5px solid #A3284F}
+
+/* FlowPay screen */
+.fp{background:#F3F5FB}
+.bal{background:linear-gradient(135deg,#2B3FB6,#4559D6);color:#fff;border-radius:18px;padding:14px}
+.bal small{opacity:.8}
+.bal strong{display:block;font-size:24px;font-weight:700;margin:2px 0 8px;letter-spacing:-.01em}
+.bal .acct{display:flex;justify-content:space-between;gap:8px;opacity:.85;font-size:10px}
+.qa{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center}
+.qa div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9.5px;color:#3c4460}
+.qa i{width:38px;height:38px;border-radius:13px;background:#fff;display:grid;place-items:center;box-shadow:0 1px 2px rgba(20,30,70,.08)}
+.qa svg{width:18px;height:18px;stroke:#2B3FB6;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tx-h{display:flex;justify-content:space-between;font-weight:700;font-size:11.5px;margin-top:2px}
+.tx-h span{color:#2B3FB6;font-weight:600}
+.tx{display:flex;align-items:center;gap:9px;background:#fff;border-radius:12px;padding:8px 10px}
+.tx .a{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:10px}
+.tx .n{flex:1}.tx .n b{display:block;font-size:11px}.tx .n small{color:#7a8299;font-size:9.5px}
+.tx .m{font-weight:700}.tx .m.in{color:#1f8a5a}
+
+/* ShopEase screen */
+.se{background:#FAFAF7}
+.search{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #E7E6DF;border-radius:12px;padding:8px 10px;color:#8a8a80}
+.search svg{width:13px;height:13px;stroke:#8a8a80;fill:none;stroke-width:2}
+.cats{display:flex;gap:6px}
+.cats span{border-radius:999px;padding:4px 10px;background:#fff;border:1px solid #E7E6DF;color:#4c4c44;white-space:nowrap}
+.cats span.on{background:#1F6B4E;border-color:#1F6B4E;color:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.prod{background:#fff;border-radius:14px;padding:7px;border:1px solid #EFEEE8}
+.prod .img{height:62px;border-radius:10px;margin-bottom:6px;display:grid;place-items:center}
+.prod .img svg{width:30px;height:30px}
+.prod b{display:block;font-size:10.5px}
+.prod .pr{display:flex;justify-content:space-between;align-items:center;margin-top:2px;font-weight:700;color:#1F6B4E}
+.prod .add{width:18px;height:18px;border-radius:6px;background:#1F6B4E;color:#fff;display:grid;place-items:center;font-size:12px;line-height:1}
+.tabbar{margin-top:auto;display:flex;justify-content:space-around;background:#fff;border-radius:14px;padding:8px 4px;border:1px solid #EFEEE8}
+.tabbar span{position:relative;font-size:9px;color:#8a8a80;display:flex;flex-direction:column;align-items:center;gap:2px}
+.tabbar span.on{color:#1F6B4E;font-weight:700}
+.tabbar svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+.badge{position:absolute;top:-4px;right:-2px;background:#D2442F;color:#fff;border-radius:999px;font-size:8px;padding:0 4px;font-weight:700}
+
+/* ---------- Sections ---------- */
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:1rem 3rem;align-items:end;margin-bottom:clamp(2rem,4vw,3rem)}
+.sec-head h2{font-size:clamp(2rem,4vw,3rem)}
+.sec-head p{color:var(--muted);max-width:52ch}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr}}
+.alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
+.svc{padding:1.9rem 2rem 1.9rem 0;border-bottom:1px solid var(--line)}
+.svc:nth-child(even){padding:1.9rem 0 1.9rem 2rem;border-left:1px solid var(--line)}
+.svc h3{font-size:1.5rem;margin-bottom:.6rem}
+.svc p{color:var(--muted);max-width:46ch}
+.svc .stack{margin-top:.9rem;font-size:.88rem;color:var(--ink);font-weight:500}
+@media (max-width:760px){.services{grid-template-columns:1fr}.svc,.svc:nth-child(even){padding:1.6rem 0;border-left:0}}
+.also{margin-top:1.75rem;color:var(--muted)}
+
+/* Work */
+.project{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(1.75rem,5vw,4.5rem);align-items:center;padding:clamp(2rem,5vw,3.5rem) 0;border-top:1px solid var(--line)}
+.group-sub + .project{border-top:0;padding-top:.5rem}
+.project.flip .stage{order:2}
+.stage{border-radius:28px;padding:clamp(1.5rem,4vw,2.75rem) 1rem;display:flex;justify-content:center}
+.stage .phone{width:min(250px,64vw)}
+.stage.rose{background:#F8E3E9}.stage.indigo{background:#E3E7F8}.stage.green{background:#E0EEE6}
+:root[data-theme="dark"] .stage.rose{background:#3A2029}:root[data-theme="dark"] .stage.indigo{background:#1F2647}:root[data-theme="dark"] .stage.green{background:#183126}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .stage.rose{background:#3A2029}
+  :root:not([data-theme="light"]) .stage.indigo{background:#1F2647}
+  :root:not([data-theme="light"]) .stage.green{background:#183126}
+}
+.p-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+.tag{font-size:.82rem;font-weight:600;padding:.28rem .7rem;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.plain{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.project h3{font-size:clamp(1.9rem,3.5vw,2.6rem)}
+.project .sub{font-family:var(--serif);font-size:1.2rem;color:var(--muted);margin-top:.35rem;font-style:italic}
+.project .desc{margin-top:1.1rem;max-width:58ch}
+.feat{list-style:none;padding:0;margin:1.25rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.5rem}
+.feat li{position:relative;padding-left:1.15rem;font-size:.97rem}
+.feat li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--brass)}
+@media (max-width:520px){.feat{grid-template-columns:1fr}}
+.stackline{margin-top:1.35rem;display:grid;gap:.4rem;font-size:.92rem}
+.stackline div{display:grid;grid-template-columns:5.5rem 1fr;gap:.75rem}
+.stackline dt{color:var(--muted);margin:0}.stackline dd{margin:0;font-weight:500}
+.p-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.note{margin-top:1rem;font-size:.9rem;color:var(--muted);max-width:58ch}
+@media (max-width:880px){.project,.project.flip{grid-template-columns:1fr}.project.flip .stage{order:0}}
+
+/* Production apps */
+.group-title{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,1.9rem);margin:0 0 .4rem}
+.group-sub{color:var(--muted);max-width:60ch;margin-bottom:1.75rem}
+.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:clamp(3.5rem,8vw,5.5rem)}
+.app{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:1.5rem;display:flex;flex-direction:column}
+.app .kind{font-size:.85rem;color:var(--muted)}
+.app h4{font-family:var(--serif);font-weight:500;font-size:1.45rem;margin:.2rem 0 .7rem;line-height:1.15}
+.app p{font-size:.95rem}
+.app .impact{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:.6rem}
+.app .impact b{font-family:var(--serif);font-size:1.7rem;font-weight:500;color:var(--brass);line-height:1}
+.app .impact span{font-size:.88rem;color:var(--muted)}
+.app .tech{margin-top:auto;padding-top:1rem;font-size:.85rem;color:var(--muted)}
+.app a.store{margin-top:.8rem;font-size:.9rem;font-weight:600;color:var(--accent);text-decoration:none}
+.app a.store:hover{text-decoration:underline}
+.app.cta{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);justify-content:space-between;gap:1.25rem}
+.app.cta p{opacity:.85}
+.app.cta .btn{background:var(--accent-ink);color:var(--accent);align-self:flex-start}
+.apps .more{grid-column:1/-1;color:var(--muted);font-size:.95rem;padding-top:.25rem}
+@media (max-width:700px){.apps{grid-template-columns:1fr}}
+
+/* Experience */
+.exp{display:grid;grid-template-columns:1fr 2fr;gap:clamp(1.5rem,5vw,4rem)}
+.exp-side h3{font-size:1.15rem;font-family:var(--sans);font-weight:600;margin-bottom:.4rem}
+.exp-side p{color:var(--muted);font-size:.95rem}
+.exp-side .block+.block{margin-top:2rem}
+.role{border-left:2px solid var(--accent);padding-left:clamp(1.1rem,3vw,2rem)}
+.role h3{font-size:clamp(1.6rem,3vw,2.1rem)}
+.role ul{margin:1.1rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;max-width:62ch}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.75rem;padding-top:2rem;border-top:1px solid var(--line)}
+.skills h4{margin:0 0 .5rem;font-size:.95rem;font-weight:600}
+.skills p{color:var(--muted);font-size:.95rem}
+@media (max-width:980px){.skills{grid-template-columns:1fr 1fr}}
+@media (max-width:820px){.exp{grid-template-columns:1fr}}
+@media (max-width:480px){.skills{grid-template-columns:1fr}}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;padding-top:1.25rem;border-top:2px solid var(--ink)}
+.steps li::before{content:counter(s);font-family:var(--serif);font-size:2.2rem;line-height:1;color:var(--brass);display:block;margin-bottom:.8rem}
+.steps h3{font-family:var(--sans);font-size:1.08rem;font-weight:600;margin-bottom:.45rem}
+.steps p{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.promises{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;padding:1.75rem;border:1px solid var(--line);border-radius:20px;background:var(--surface)}
+.promises b{display:block;margin-bottom:.25rem}
+.promises span{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.promises{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.promises{grid-template-columns:1fr}}
+
+/* Contact */
+.contact{background:var(--accent);color:var(--accent-ink);border-radius:32px;padding:clamp(2rem,6vw,4.5rem);display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:end}
+.contact h2{font-size:clamp(2.1rem,5vw,3.6rem);max-width:14ch}
+.contact p{margin-top:1rem;opacity:.85;max-width:46ch}
+.c-links{display:grid;gap:.6rem}
+.c-links a{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.95rem 1.15rem;border-radius:14px;background:color-mix(in srgb,var(--accent-ink) 10%,transparent);text-decoration:none;font-weight:600;word-break:break-word}
+.c-links a:hover{background:color-mix(in srgb,var(--accent-ink) 18%,transparent)}
+.c-links small{font-weight:500;opacity:.75;text-align:right}
+[hidden]{display:none!important}
+.contact .btn{background:var(--accent-ink);color:var(--accent);margin-top:1.75rem}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="site" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Ekta Ranipa, home"><span class="mono">ER</span><span>Ekta Ranipa</span></a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">How I work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm hire-top" href="#contact">Hire me</a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status"><span class="dot" aria-hidden="true"></span>Taking on new freelance projects, worldwide</div>
+      <h1 id="hero-title">Mobile apps that businesses rely on every day.</h1>
+      <p class="lede">I'm Ekta Ranipa, a senior Mobile developer and tech lead in Bengaluru, India. For over six years I've designed and shipped production apps for enterprise clients in sales, distribution and healthcare. Now I build for clients directly: native Android in Kotlin and Java, cross-platform apps in Flutter, and the APIs behind them.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" data-link="email" href="#contact">Start a project</a>
+        <a class="btn btn-ghost" href="#work">See my work</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>6+ years</b><span>Building Android apps</span></div>
+        <div class="fact"><b>5 apps</b><span>Live on Google Play</span></div>
+        <div class="fact"><b>10K+</b><span>Installs across apps I've built</span></div>
+      </div>
+    </div>
+
+    <div class="showcase">
+      <div class="phone" aria-label="App screens from my projects" role="img">
+        <div class="screen-box">
+
+          <!-- FemHealth -->
+          <div class="screen fh active" id="scr-femhealth" data-name="femhealth">
+            <div class="s-top"><div><small style="color:#8a6070">Good morning</small><br><b>Hi, Aanya</b></div><div class="s-av">A</div></div>
+            <div class="ring">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="50" fill="none" stroke="#F3D9E1" stroke-width="10"/>
+                <circle cx="60" cy="60" r="50" fill="none" stroke="#A3284F" stroke-width="10" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="157"/>
+              </svg>
+              <div class="ring-in"><small>Cycle day</small><strong>14</strong><small>of 28</small></div>
+            </div>
+            <div class="pill-note">Next period in 14 days</div>
+            <div class="mini-cal" aria-hidden="true">
+              <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+              <span>8</span><span>9</span><span>10</span><span>11</span><span class="o">12</span><span class="o">13</span><span class="o t">14</span>
+            </div>
+            <div><b style="font-size:11px">How do you feel today?</b>
+              <div class="chips" style="margin-top:6px"><span class="chip on">Calm</span><span class="chip">Tired</span><span class="chip">Cramps</span><span class="chip">Happy</span></div>
+            </div>
+            <div style="background:#fff;border:1px solid #F0DCE2;border-radius:12px;padding:8px 10px"><b style="font-size:10.5px">Insight</b><div style="color:#6b4553;font-size:10px;margin-top:2px">Your last 3 cycles averaged 28 days. Energy tends to be highest this week.</div></div>
+            <div class="s-btn">Log today</div>
+          </div>
+
+          <!-- FlowPay -->
+          <div class="screen fp" id="scr-flowpay" data-name="flowpay">
+            <div class="s-top"><b>FlowPay</b><div class="s-av" style="background:#DCE1FA;color:#2B3FB6">R</div></div>
+            <div class="bal"><small>Wallet balance</small><strong>₹24,580.00</strong><div class="acct"><span>HDFC ••4821 linked</span><span>Updated now</span></div></div>
+            <div class="qa">
+              <div><i><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 18h2v2h-2z"/></svg></i>Scan QR</div>
+              <div><i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Send</div>
+              <div><i><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M19 10v8M9 10v8M15 10v8M3 20h18"/></svg></i>Bank</div>
+              <div><i><svg viewBox="0 0 24 24"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="8"/></svg></i>History</div>
+            </div>
+            <div class="tx-h">Recent activity <span>See all</span></div>
+            <div class="tx"><div class="a" style="background:#FDE8D6;color:#B4561A">P</div><div class="n"><b>Priya Shah</b><small>Sent · Today, 10:42</small></div><div class="m">−₹1,200</div></div>
+            <div class="tx"><div class="a" style="background:#D8F0E4;color:#1f8a5a">M</div><div class="n"><b>Mehul Patel</b><small>Received · Yesterday</small></div><div class="m in">+₹3,500</div></div>
+            <div class="tx"><div class="a" style="background:#E3E7FB;color:#2B3FB6">C</div><div class="n"><b>Corner Café</b><small>QR payment · Mon</small></div><div class="m">−₹240</div></div>
+          </div>
+
+          <!-- ShopEase -->
+          <div class="screen se" id="scr-shopease" data-name="shopease">
+            <div class="s-top"><b>ShopEase</b><div class="s-av" style="background:#DDEDE4;color:#1F6B4E">E</div></div>
+            <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Search products</div>
+            <div class="cats"><span class="on">All</span><span>Shoes</span><span>Watches</span><span>Bags</span></div>
+            <div class="grid2">
+              <div class="prod"><div class="img" style="background:#F3EAD9"><svg viewBox="0 0 24 24" fill="none" stroke="#8a6a35" stroke-width="1.6"><path d="M3 16c3 0 5-1 7-4l2 2c2 1 5 1 9 2v2H3z"/></svg></div><b>Running shoes</b><div class="pr">₹2,499<span class="add">+</span></div></div>
+              <div class="prod"><div class="img" style="background:#E2ECF2"><svg viewBox="0 0 24 24" fill="none" stroke="#3c6a85" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M9 3h6l1 4M9 21h6l1-4M12 10v2l1 1"/></svg></div><b>Classic watch</b><div class="pr">₹3,999<span class="add">+</span></div></div>
+              <div class="prod"><div class="img" style="background:#EDE4EF"><svg viewBox="0 0 24 24" fill="none" stroke="#6d4a78" stroke-width="1.6"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/></svg></div><b>Tote bag</b><div class="pr">₹1,299<span class="add">+</span></div></div>
+              <div class="prod"><div class="img" style="background:#E3EFE6"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b49" stroke-width="1.6"><path d="M4 12a8 8 0 0 1 16 0v5h-3v-5M4 12v5h3v-5"/></svg></div><b>Headphones</b><div class="pr">₹1,899<span class="add">+</span></div></div>
+            </div>
+            <div class="tabbar">
+              <span class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9H3z"/></svg>Home</span>
+              <span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>Saved</span>
+              <span><svg viewBox="0 0 24 24"><path d="M3 4h2l2 12h12l2-8H6"/></svg>Cart<em class="badge" style="font-style:normal">2</em></span>
+              <span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Profile</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="app-tabs" role="tablist" aria-label="Choose an app to preview">
+        <button role="tab" aria-selected="true" data-target="femhealth">FemHealth</button>
+        <button role="tab" aria-selected="false" data-target="flowpay">FlowPay</button>
+        <button role="tab" aria-selected="false" data-target="shopease">ShopEase</button>
+      </div>
+      <p class="show-caption" id="showCaption">Period and cycle tracker. Flutter app with a Spring Boot API.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section id="work" class="alt" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="work-title">Selected work</h2>
+      <p>Apps live on Google Play that I lead on the Android side, followed by products I've built end to end on my own, from database to Play Store.</p>
+    </div>
+
+    <h3 class="group-title">In production</h3>
+    <p class="group-sub">Five apps live on Google Play, built in a mix of Kotlin and Java. Field sales teams and dealer networks use them every working day.</p>
+    <div class="apps">
+
+      <article class="app">
+        <span class="kind">Sales force automation · Android (Kotlin + Java) and Flutter</span>
+        <h4>KOOPS Sales</h4>
+        <p>An enterprise sales force automation app for teams on the road. Reps manage customers and products, record visits and orders even without network thanks to offline data sync, and managers follow progress through GPS tracking and a sales analytics dashboard.</p>
+        <div class="impact"><b>10K+</b><span>downloads · 4.2 rating from 270 reviews</span></div>
+        <p class="tech">Kotlin, Java, Flutter, MVVM, SQLite, Coroutines, Firebase</p>
+        <a class="store" href="https://play.google.com/store/apps/details?id=in.koops.sales" target="_blank" rel="noopener">View on Google Play</a>
+      </article>
+
+      <article class="app">
+        <span class="kind">Order management · Android (Kotlin + Java) and Flutter</span>
+        <h4>KOOPS Customer</h4>
+        <p>The ordering app for a company's distributor and dealer network. Dealers place and track orders, and companies control them with approval workflows and grouped product catalogues.</p>
+        <div class="impact"><b>4.8</b><span>rating · 1K+ downloads</span></div>
+        <p class="tech">Kotlin, Java, Flutter</p>
+        <a class="store" href="https://play.google.com/store/apps/details?id=in.koops.customer" target="_blank" rel="noopener">View on Google Play</a>
+      </article>
+
+      <article class="app">
+        <span class="kind">Product catalogue · Native Android (Kotlin + Java)</span>
+        <h4>Nebula Enduser</h4>
+        <p>A product information app for a surgical implants and instruments company. Doctors and students browse detailed product information in one place, on Android.</p>
+        <div class="impact"><b>4.3</b><span>rating · 1K+ downloads</span></div>
+        <p class="tech">Kotlin, Java</p>
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.nebula_enduser" target="_blank" rel="noopener">View on Google Play</a>
+      </article>
+
+      <article class="app cta">
+        <div>
+          <h4>Need something similar?</h4>
+          <p>Sales, field-force, ordering or catalogue apps are my home ground. Tell me about yours.</p>
+        </div>
+        <a class="btn btn-sm" href="#contact">Discuss your app</a>
+      </article>
+
+      <p class="more">Also built: white-label sales apps for distribution and home-appliance companies, in native Android with Kotlin and Java.</p>
+    </div>
+
+    <h3 class="group-title">Products I built end to end</h3>
+    <p class="group-sub">Independent projects where I own everything: design, API, database and the mobile app.</p>
+
+    <!-- FlowPay -->
+    <article class="project" aria-labelledby="p-flowpay">
+      <div class="stage indigo"><div class="phone" aria-hidden="true"><div class="screen-box" data-clone="scr-flowpay"></div></div></div>
+      <div>
+        <div class="p-meta"><span class="tag">Fintech</span><span class="tag plain">Full stack</span><span class="tag plain">Android</span></div>
+        <h3 id="p-flowpay">FlowPay</h3>
+        <p class="sub">A digital wallet and UPI-style payments app, inspired by Google Pay and PhonePe</p>
+        <p class="desc">I built FlowPay end to end to show how I handle the parts of a payments app that can't go wrong: money moves atomically, every rupee is accounted for in a double-entry ledger, and a payment retried on a bad network is never charged twice.</p>
+        <ul class="feat">
+          <li>OTP sign-in with JWT sessions</li>
+          <li>Real-time wallet balance</li>
+          <li>Peer-to-peer transfers with atomic transactions</li>
+          <li>Double-entry bookkeeping ledger</li>
+          <li>Idempotency-safe payments</li>
+          <li>Bank account linking</li>
+          <li>Scan and pay with QR codes</li>
+          <li>Transaction history</li>
+        </ul>
+        <dl class="stackline">
+          <div><dt>Backend</dt><dd>Ktor 3, PostgreSQL, Exposed ORM, HikariCP, JWT</dd></div>
+          <div><dt>Android</dt><dd>Kotlin, Jetpack Compose, Hilt, Retrofit, DataStore, ZXing</dd></div>
+        </dl>
+        <div class="p-links"><a class="btn btn-ghost btn-sm" data-link="github-flowpay" href="#" target="_blank" rel="noopener">View source on GitHub</a></div>
+      </div>
+    </article>
+
+    <!-- FemHealth -->
+    <article class="project flip" aria-labelledby="p-femhealth">
+      <div class="stage rose"><div class="phone" aria-hidden="true"><div class="screen-box" data-clone="scr-femhealth"></div></div></div>
+      <div>
+        <div class="p-meta"><span class="tag">Health</span><span class="tag plain">Flutter</span><span class="tag plain">In progress</span></div>
+        <h3 id="p-femhealth">FemHealth</h3>
+        <p class="sub">A privacy-first period and cycle tracker</p>
+        <p class="desc">FemHealth helps people log their periods, symptoms and mood, then turns that history into cycle predictions and simple, readable insights. I'm designing and building the whole product myself, from the database schema to the last screen. Health data is personal, so privacy shapes every decision.</p>
+        <ul class="feat">
+          <li>Period, symptom and mood logging</li>
+          <li>Cycle and fertile-window predictions</li>
+          <li>Calendar view of past cycles</li>
+          <li>Simple personal insights</li>
+          <li>Secure REST API with authentication</li>
+          <li>Privacy-first data handling</li>
+        </ul>
+        <dl class="stackline">
+          <div><dt>App</dt><dd>Flutter (Android and iOS)</dd></div>
+          <div><dt>Backend</dt><dd>Spring Boot REST API, PostgreSQL</dd></div>
+        </dl>
+        <div class="p-links"><a class="btn btn-ghost btn-sm" data-link="github-femhealth" href="#" target="_blank" rel="noopener">View source on GitHub</a></div>
+      </div>
+    </article>
+
+    <!-- ShopEase -->
+    <article class="project" aria-labelledby="p-shopease">
+      <div class="stage green"><div class="phone" aria-hidden="true"><div class="screen-box" data-clone="scr-shopease"></div></div></div>
+      <div>
+        <div class="p-meta"><span class="tag">E-commerce</span><span class="tag plain">Android</span><span class="tag plain">Firebase</span></div>
+        <h3 id="p-shopease">ShopEase</h3>
+        <p class="sub">A shopping app built with Jetpack Compose and Firebase</p>
+        <p class="desc">A complete online store for Android: customers sign up, browse products by category, add items to their cart and place orders, with Firebase handling authentication and data. It's the kind of app I can deliver quickly for a business that wants to start selling on mobile.</p>
+        <ul class="feat">
+          <li>Sign up and login with Firebase Auth</li>
+          <li>Product catalogue and categories</li>
+          <li>Product details and search</li>
+          <li>Cart and checkout flow</li>
+          <li>Order history and profile</li>
+          <li>Cloud Firestore as the backend</li>
+        </ul>
+        <dl class="stackline">
+          <div><dt>Android</dt><dd>Kotlin, Jetpack Compose, Navigation</dd></div>
+          <div><dt>Backend</dt><dd>Firebase Authentication, Cloud Firestore</dd></div>
+        </dl>
+        <div class="p-links"><a class="btn btn-ghost btn-sm" data-link="github-shopease" href="#" target="_blank" rel="noopener">View source on GitHub</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="svc-title">What I can build for you</h2>
+      <p>Whether you need a new app from scratch, an API for your existing product, or help finishing something that's stuck, I can take it on as one developer who understands both sides.</p>
+    </div>
+    <div class="services">
+      <div class="svc">
+        <h3>Native Android apps</h3>
+        <p>Fast, modern Android apps written in Kotlin and Java, with Jetpack Compose for new screens, structured cleanly so they're easy to grow and hand over.</p>
+        <p class="stack">Kotlin, Java, Jetpack Compose, Hilt, Retrofit, Room, DataStore</p>
+      </div>
+      <div class="svc">
+        <h3>Android and iOS with Flutter</h3>
+        <p>One codebase for both stores when budget and time matter. Same quality on each platform, without paying for two separate apps.</p>
+        <p class="stack">Flutter, Dart, Firebase, REST integration</p>
+      </div>
+      <div class="svc">
+        <h3>Backend and APIs</h3>
+        <p>Secure REST APIs and databases for your app, with authentication, clear data models and transactions that keep your data correct.</p>
+        <p class="stack">Spring Boot, Ktor, PostgreSQL, JWT</p>
+      </div>
+      <div class="svc">
+        <h3>Existing Java and Kotlin codebases</h3>
+        <p>Have an app that mixes Java and Kotlin, or an older Java app? I add features safely, move code to Kotlin step by step, and refactor into clean, modular code without rewriting everything.</p>
+        <p class="stack">Java to Kotlin migration, Clean Architecture, modularization, XML to Compose</p>
+      </div>
+      <div class="svc">
+        <h3>Performance and app rescue</h3>
+        <p>Slow or crashing app? I find the problems, fix them, and set up crash and performance monitoring so they stay fixed.</p>
+        <p class="stack">Crashlytics, Performance Monitoring, profiling</p>
+      </div>
+      <div class="svc">
+        <h3>Play Store launch and maintenance</h3>
+        <p>Release builds, store listing, CI/CD for automatic builds, and ongoing updates for new Android versions after launch.</p>
+        <p class="stack">Gradle, R8, CI/CD, Play Console</p>
+      </div>
+    </div>
+    <p class="also">I also build MVPs on Firebase, with login, cloud data and push notifications, in weeks and not months.</p>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="alt" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="about-title">Why clients work with me</h2>
+      <p>Six years of building apps that real businesses run on, working remotely with design, backend and QA teams the whole time.</p>
+    </div>
+    <div class="exp">
+      <div class="exp-side">
+        <div class="block">
+          <h3>Background</h3>
+          <p>Lead Android Developer on KOOPS Sales and four other live Google Play apps. 2019 to present.</p>
+        </div>
+        <div class="block">
+          <h3>Education</h3>
+          <p>Bachelor of Computer Engineering, 2019<br>Darshan Institute of Engineering &amp; Technology, Rajkot</p>
+        </div>
+        <div class="block">
+          <h3>Based in</h3>
+          <p>Bengaluru, India (IST, UTC+5:30). Working remotely since 2019, with overlap for UK, European and US hours.</p>
+        </div>
+      </div>
+      <div class="role">
+        <h3>What that experience means for your app</h3>
+        <ul>
+          <li><b>Architecture that lasts.</b> I build with MVVM, Clean Architecture and Hilt, so your app stays easy to test, extend and hand over to another developer.</li>
+          <li><b>Comfortable in mixed codebases.</b> My production apps combine Java and Kotlin, so I'm at home in real-world projects, not only fresh ones, and can modernise them one step at a time.</li>
+          <li><b>Results you can measure.</b> I cut app load time by 20%, tracked in Firebase Performance Monitoring, and raised the crash-free user rate by modularizing legacy code and fixing issues found in Crashlytics.</li>
+          <li><b>Built for the real world.</b> Offline sync, GPS tracking, barcode scanning, Bluetooth printers and OTP login are all things I've shipped in production.</li>
+          <li><b>Releases without drama.</b> I've set up CI/CD for automated builds and Play Store deployment, and monitor crashes in real time with Crashlytics.</li>
+          <li><b>A lead, not just a coder.</b> I've led Android work, reviewed code and mentored developers, so I can work alone or slot into your team.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="skills">
+      <div><h4>Android</h4><p>Kotlin, Java, Jetpack Compose, Coroutines, Flow, Room, WorkManager, Paging 3, Navigation</p></div>
+      <div><h4>Architecture</h4><p>MVVM, MVI, Clean Architecture, Repository Pattern, Hilt, Dagger 2</p></div>
+      <div><h4>Cross-platform and backend</h4><p>Flutter, Ktor, Spring Boot, Retrofit, OkHttp, REST APIs, PostgreSQL</p></div>
+      <div><h4>Firebase and delivery</h4><p>Crashlytics, Analytics, FCM, Auth, Performance Monitoring, CI/CD, SSL pinning, Material Design 3</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process" aria-labelledby="proc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="proc-title">How we'd work together</h2>
+      <p>A simple, predictable process, so you always know what's done, what's next and what it costs.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>A short call</h3><p>We talk through your idea, your users and your deadline. No charge, no obligation.</p></li>
+      <li><h3>A clear estimate</h3><p>You get a written scope, timeline and fixed or hourly price before any work starts.</p></li>
+      <li><h3>Build with weekly builds</h3><p>Every week you get a progress update and a build to install and try on your own phone.</p></li>
+      <li><h3>Launch and support</h3><p>I help publish to the Play Store and App Store, then stay on to fix issues after launch.</p></li>
+    </ol>
+    <div class="promises">
+      <div><b>6+ years remote</b><span>Used to working across time zones and teams.</span></div>
+      <div><b>You own everything</b><span>Full source code and accounts are yours from day one.</span></div>
+      <div><b>Clear communication</b><span>Written updates in English, on Slack, email or WhatsApp.</span></div>
+      <div><b>Time-zone friendly</b><span>I reply within one working day, and earlier calls are easy to arrange.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" aria-labelledby="contact-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2 id="contact-title">Have an app in mind? Let's talk.</h2>
+        <p>Tell me what you'd like to build and I'll reply within one working day with questions or a rough estimate.</p>
+        <a class="btn" data-link="email" href="#">Email me</a>
+      </div>
+      <div class="c-links">
+        <a data-link="email" href="#"><span>Email</span><small data-text="email"></small></a>
+        <a data-link="linkedin" href="#" target="_blank" rel="noopener"><span>LinkedIn</span><small>ektaranipa</small></a>
+        <a data-link="whatsapp" href="#" target="_blank" rel="noopener"><span>WhatsApp</span><small>+91 81602 35850</small></a>
+        <a data-link="phone" href="#"><span>Call</span><small>+91 81602 35850</small></a>
+        <a data-link="github" href="#" target="_blank" rel="noopener"><span>GitHub</span><small>See my code</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Ekta Ranipa. Freelance senior Mobile developer, Bengaluru.</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   EDIT YOUR DETAILS HERE — everything below updates automatically
+   ================================================================ */
+const CONFIG = {
+  email: "erekta1710@gmail.com",
+  phone: "+918160235850",
+  whatsapp: "918160235850",                      // country code + number, digits only
+  linkedin: "https://www.linkedin.com/in/ektaranipa",
+  github: "",                                    // add your GitHub profile link; hidden while empty
+  githubRepos: {                                 // repo links; each button is hidden while empty
+    flowpay: "",
+    femhealth: "",
+    shopease: ""
+  }
+};
+
+(function(){
+  const mail = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("Project enquiry");
+  const links = {
+    email: mail,
+    linkedin: CONFIG.linkedin,
+    github: CONFIG.github,
+    whatsapp: "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Hi Ekta, I'd like to discuss an app project."),
+    phone: "tel:" + CONFIG.phone,
+    "github-flowpay": CONFIG.githubRepos.flowpay,
+    "github-femhealth": CONFIG.githubRepos.femhealth,
+    "github-shopease": CONFIG.githubRepos.shopease
+  };
+  document.querySelectorAll("[data-link]").forEach(a => {
+    const k = a.dataset.link, v = links[k];
+    const empty = (k === "github" && !CONFIG.github) || (k.startsWith("github-") && !v);
+    if (empty) { const wrap = a.closest(".p-links"); (wrap || a).hidden = true; return; }
+    if (v) a.href = v;
+  });
+  document.querySelectorAll("[data-text]").forEach(el => { const v = CONFIG[el.dataset.text]; if (v) el.textContent = v; });
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Clone app screens into project cards
+  document.querySelectorAll("[data-clone]").forEach(box => {
+    const src = document.getElementById(box.dataset.clone);
+    const c = src.cloneNode(true); c.removeAttribute("id"); c.classList.add("active");
+    box.appendChild(c);
+  });
+
+  // Hero phone tabs
+  const captions = {
+    femhealth: "Period and cycle tracker. Flutter app with a Spring Boot API.",
+    flowpay: "Wallet and payments app. Jetpack Compose with a Ktor API.",
+    shopease: "Shopping app. Jetpack Compose with Firebase."
+  };
+  const order = ["femhealth","flowpay","shopease"];
+  const tabs = document.querySelectorAll(".app-tabs button");
+  const heroScreens = document.querySelectorAll(".showcase .screen");
+  const cap = document.getElementById("showCaption");
+  let current = 0, timer = null, userPicked = false;
+  function show(name){
+    heroScreens.forEach(s => s.classList.toggle("active", s.dataset.name === name));
+    tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.target === name ? "true" : "false"));
+    cap.textContent = captions[name];
+    current = order.indexOf(name);
+  }
+  tabs.forEach(t => t.addEventListener("click", () => { userPicked = true; clearInterval(timer); show(t.dataset.target); }));
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce) timer = setInterval(() => { if (!userPicked) show(order[(current + 1) % order.length]); }, 4200);
+
+  // Mobile menu
+  const menuBtn = document.getElementById("menuBtn"), nav = document.getElementById("navlinks");
+  menuBtn.addEventListener("click", () => { const o = nav.classList.toggle("open"); menuBtn.setAttribute("aria-expanded", o); });
+  nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); }));
+
+  // Header border on scroll
+  const header = document.querySelector("header.site");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  // Theme toggle
+  const root = document.documentElement;
+  try { const saved = localStorage.getItem("er-theme"); if (saved) root.dataset.theme = saved; } catch(e) {}
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const isDark = root.dataset.theme ? root.dataset.theme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = isDark ? "light" : "dark";
+    try { localStorage.setItem("er-theme", root.dataset.theme); } catch(e) {}
+  });
+})();
+</script>
+</body>
+</html>
